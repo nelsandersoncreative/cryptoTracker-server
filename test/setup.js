@@ -1,0 +1,9 @@
+'use strict'
+
+require('dotenv').config({ path: '.env.test' });
+
+const { expect } = require("chai");
+const supertest = require("supertest");
+
+global.expect = expect;
+global.supertest = supertest;

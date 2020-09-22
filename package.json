@@ -1,0 +1,40 @@
+{
+  "name": "cryptotrackerapp-server",
+  "version": "1.0.0",
+  "description": "Server for Crypto Tracker App",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --require test/setup.js --recursive --exit",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "engines": {
+    "node": "11.14.0"
+  },
+  "author": "Nels Anderson Creative",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.5",
+    "lodash.get": "^4.4.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.3.2",
+    "xss": "^1.0.8"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1",
+    "nodemon": "^2.0.4",
+    "postgrator-cli": "^4.0.0",
+    "supertest": "^4.0.2"
+  }
+}
