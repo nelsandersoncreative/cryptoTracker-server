@@ -14,7 +14,7 @@ If you'd like to learn more about Crypto Tracker, discover cryptocurrency coins 
 
 | Home       | Favorites   | Search     | Login       | Dashboard   | New Dash   | Results     |
 |------------|-------------|------------|-------------|-------------|------------|-------------|
-| <img src="/public/cryptotracker-home-public.png" width="250"> | <img src="/public/cryptotracker-home-favorites-public.png" width="250"> | <img src="/public/cryptotracker-home-search-public.png" width="250"> | <img src="/public/cryptotracker-login.png" width="250"> | <img src="/public/cryptotracker-dashboard.png" width="250"> | <img src="/public/cryptotracker-dashfiller.png" width="250"> | <img src="/public/cryptotracker-search-query-public.png" width="250"> |
+| <img src="/assets/cryptotracker-home-public.png" width="250"> | <img src="/assets/cryptotracker-home-favorites-public.png" width="250"> | <img src="/assets/cryptotracker-home-search-public.png" width="250"> | <img src="/assets/cryptotracker-login.png" width="250"> | <img src="/assets/cryptotracker-dashboard.png" width="250"> | <img src="/assets/cryptotracker-dashfiller.png" width="250"> | <img src="/assets/cryptotracker-search-query-public.png" width="250"> |
 
 ## Technology
 
