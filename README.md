@@ -2,17 +2,19 @@
 
 Create a wallet of cryptocurrency coins you want to follow.  See chronological visualizations of coin prices measured in days, weeks or months dating as far back as 2010 all the way to the present.
 
-This is the backend for `cryptoTracker`.  A live version of the app can be found at [https://](https://)
+This is the backend for `cryptoTracker`.  A live version of the app can be found at [https://cryptotracker-omega.vercel.app/](https://cryptotracker-omega.vercel.app/)
 
-The front end client can be found at [https://github.com/nelsandersoncreative/r/server](https://github.com/nelsandersoncreative/master/server).
+The front end client can be found at [https://github.com/nelsandersoncreative/cryptotracker-client](https://github.com/nelsandersoncreative/cryptotracker-client).
 
 ## Introduction
 
 If you'd like to learn more about Crypto Tracker, discover cryptocurrency coins you haven't heard about or just want to see general cryptocurrency prices, you have come to the right place. With this app you will be able to explore cryptocurrency coins, save the ones you like in a wallet and refer to them whenever you'd like.
 
-## Quick App Demo
+## Screenshots
 
-[https://i.imgur.com/IjxgzYl.mp4](https://i.imgur.com/IjxgzYl.mp4)
+| Home       | Favorites   | Search     | Login       | Dashboard   | New Dash   | Results     |
+|------------|-------------|------------|-------------|-------------|------------|-------------|
+| <img src="/public/cryptotracker-home-public.png" width="250"> | <img src="/public/cryptotracker-home-favorites-public.png" width="250"> | <img src="/public/cryptotracker-home-search-public.png" width="250"> | <img src="/public/cryptotracker-login.png" width="250"> | <img src="/public/cryptotracker-dashboard.png" width="250"> | <img src="/public/cryptotracker-dashfiller.png" width="250"> | <img src="/public/cryptotracker-search-query-public.png" width="250"> |
 
 ## Technology
 
