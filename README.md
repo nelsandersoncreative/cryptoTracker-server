@@ -83,6 +83,12 @@ JWT_EXPIRY='1w'
 
 4. Migrations run automatically for the app itself in server.js and are imported from src > helpers > createTables.  They only create tables if tables haven't yet been created
 
-5. Run the tests, to ensure stable build of server - `npm test`
+5. Run the migrations for the test database - `NODE_ENV=test npm run migrate`
 
-6. Start the app - `npm run dev`
+6. Seed the test database as well.
+
+* `psql -U <db-user> -d cryptotrackerapp-test -f ./seeds/seed.sample-user.sql`
+* `psql -U <db-user> -d cryptotrackerapp-test -f ./seeds/seed.sample-user-coins-list.sql`
+
+7. Run the tests, to ensure stable build of server - `npm test`
+8. Start the app - `npm run dev`
