@@ -27,13 +27,6 @@ const UserCoinsService = {
         return rows[0];
       });
   }
-
-  // getById(knex, id) {
-  //   return knex.from("user_coins").select("*").where("id", id).first();
-  // },
-  // deleteCoin(knex, id) {
-  //   return knex("user_coins").where({ id }).delete();
-  // }
 };
 
 module.exports = UserCoinsService;

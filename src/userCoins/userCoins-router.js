@@ -61,32 +61,4 @@ userCoinsRouter
   }
 });
 
-// // @route   PUT api/user-coins/remove-coin/:id
-// // @desc    Remove a coin from user's list
-// // @access  Private
-// // pass in coin code in params -- user_id and index in req.body
-// // get the original array from the DB, remove the item from array by index, userCoinsService.updatecoinsArray to update array
-
-// userCoinsRouter
-// .route('/remove-coin/:coin_code')
-// .put(requireAuth, bodyParser, async (req, res, next) => {
-//   const { coin_code } = req.params;
-//   const { id, index } = req.body;
-
-//   if (!id || !index) {
-//     return next({status: 400, message: 'user_id and index is required'});
-//   }
-  
-//   try { 
-//     const oldCoinsArray = await userCoinsService.getUserCoins(req.app.get('db'), id);
-//     let newCoinsArray = oldCoinsArray[0].coins;
-//     newCoinsArray.splice(index, 1);
-//     const updatedCoinsArray = await userCoinsService.updateCoinsArray(req.app.get('db'), newCoinsArray, id);
-//     res.json(updatedCoinsArray);
-//   } catch(err) {
-//     next({status: 500, message: err.message});
-//   }
-// });
-
-
 module.exports = userCoinsRouter;

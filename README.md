@@ -56,22 +56,14 @@ and
 Inside the `.env` files you'll need the following:
 
 ````
-
-NODE_ENV=development
-PORT=8000
-
-MIGRATION_DB_HOST=localhost
-MIGRATION_DB_PORT=5432
-MIGRATION_DB_NAME=cryptotrackerapp
-MIGRATION_DB_USER=postgres
-DEV_DB_URL="postgresql://postgres@localhost/cryptotrackerapp"
-
-JWT_SECRET=<your-secret-here>
-JWT_EXPIRY='1w'
+DEV_DATABASE_URL=postgresql://postgres@localhost/cryptotrackerapp
+JWT_SECRET=secret
+JWT_EXPIRY=1w
+PORT=9000
 
 ````
 
-Your `.env.test` will be the same except your database url will be called `TEST_DB_URL`. The TEST_DB_URL and MIGRATION_DB_NAME will have "test" appended to it.  Here is what env.test will look like respectively:
+Your `.env.test` will be the same except your database url will be called `TEST_DATABASE_URL`. The TEST_DATABASE_URL and MIGRATION_DB_NAME will have "test" appended to it.  Here is what env.test will look like respectively:
 
 ````
 NODE_ENV=test
@@ -81,21 +73,16 @@ MIGRATION_DB_HOST=localhost
 MIGRATION_DB_PORT=5432
 MIGRATION_DB_NAME=cryptotrackerapp-test
 MIGRATION_DB_USER=postgres
-TEST_DB_URL="postgresql://postgres@localhost/cryptotrackerapp-test"
+TEST_DATABASE_URL="postgresql://postgres@localhost/cryptotrackerapp-test"
 
 JWT_SECRET='super-secret'
 JWT_EXPIRY='1w'
+
 
 ````
 
 4. Migrations run automatically for the app itself in server.js and are imported from src > helpers > createTables.  They only create tables if tables haven't yet been created
 
-5. Run the migrations for the test database - `NODE_ENV=test npm run migrate`
+5. Run the tests, to ensure stable build of server - `npm test`
 
-6. Seed the test database as well.
-
-* `psql -U <db-user> -d cryptotrackerapp-test -f ./seeds/seed.sample-user.sql`
-* `psql -U <db-user> -d cryptotrackerapp-test -f ./seeds/seed.sample-user-coins-list.sql`
-
-7. Run the tests, to ensure stable build of server - `npm test`
-8. Start the app - `npm run dev`
+6. Start the app - `npm run dev`

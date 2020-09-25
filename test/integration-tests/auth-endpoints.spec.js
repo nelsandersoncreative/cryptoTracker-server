@@ -14,7 +14,7 @@ describe('Auth Endpoints', function() {
   before('make knex instance', () => {
     db = knex({
       client: 'pg',
-      connection: process.env.TEST_DB_URL,
+      connection: process.env.TEST_DATABASE_URL,
     });
     app.set('db', db);
   });
@@ -38,7 +38,7 @@ describe('Auth Endpoints', function() {
           .post('/api/auth/login')
           .set('Content-Type', 'application/json')
           .send(requestBody)
-          .expect(400, {message: 'username, email and password required'});
+          .expect(400, {message: 'Enter a username, email and password.'});
       });
     });
 
@@ -49,7 +49,7 @@ describe('Auth Endpoints', function() {
         .post('/api/auth/login')
         .set('Content-Type', 'application/json')
         .send(requestBody)
-        .expect(401, {message: 'invalid username, email or password'});
+        .expect(401, {message: 'Try again. Wrong username, email or password.'});
     });
 
     it('return 401 when invalid password', () => {
@@ -59,7 +59,7 @@ describe('Auth Endpoints', function() {
         .post('/api/auth/login')
         .set('Content-Type', 'application/json')
         .send(requestBody)
-        .expect(401, {message: 'invalid username, email or password'});
+        .expect(401, {message: 'Try again. Wrong username, email or password.'});
     });
 
     it('return 200, authToken and user when successful', async () => {
