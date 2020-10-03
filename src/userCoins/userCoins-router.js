@@ -22,7 +22,7 @@ userCoinsRouter
       const coinsArray = await userCoinsService.getUserCoins(req.app.get('db'), id);
 
       if (!coinsArray) {
-        return next({status: 404, message: `unable to find a list of coins with id: ${id}`});
+        return next({status: 404, message: `Unable to find a list of coins with id: ${id}`});
       }
       res.json(coinsArray);
    } catch(err) {
@@ -32,7 +32,7 @@ userCoinsRouter
 
 
   // @route   PUT api/user-coins/add-coins/
-  // @desc    Add a coin to user's coin list
+  // @desc    Add/Remove a coin to user's coin list
   // @access  Private
   // HEADERS: Auth Bearer Token
   //pass in user_id and array of coins in req.body

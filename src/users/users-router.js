@@ -36,7 +36,7 @@ usersRouter
     try {
       const emailTaken = await UserService.findByEmail(req.app.get('db'), user.user_email);
       if (emailTaken) {
-        return next({ status: 400, message: 'email is already in use' });
+        return next({ status: 400, message: 'Email is already in use' });
       }
 
       user.user_password = await UserService.hashPassword(user.user_password);

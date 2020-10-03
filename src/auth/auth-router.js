@@ -45,10 +45,10 @@ authRouter
     }
   });
 
-// @route   DELETE api/users/remove
+// @route   DELETE api/users/
 // @desc    Remove user
 // @access  Private
-// in req.body as JSON pass in: user_name, user_email, user_password; Headers: key: Authorization value: Bearer <json web token>
+// Headers: key: Authorization value: Bearer <json web token>
 
 authRouter
   .route('/:id')
@@ -60,7 +60,7 @@ authRouter
     try {
       const user = await AuthService.removeUser(req.app.get('db'), id);
 
-      res.json({ message: `user profile deleted successfully` });
+      res.json({ message: `User profile deleted successfully` });
 
    } catch(err) {
       next({status: 500, message: err.message});

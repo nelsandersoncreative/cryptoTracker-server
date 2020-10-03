@@ -91,4 +91,28 @@ JWT_EXPIRY='1w'
 * `psql -U <db-user> -d cryptotrackerapp-test -f ./seeds/seed.sample-user-coins-list.sql`
 
 7. Run the tests, to ensure stable build of server - `npm test`
+
 8. Start the app - `npm run dev`
+
+
+## Open Endpoints
+
+Open endpoints require no Authentication.
+
+* [Login](auth/login.md) : `POST /api/auth/login`
+* [Register](auth/register.md) : `POST api/users/register`
+
+
+## Endpoints that require Authentication
+
+Closed endpoints require a valid Token to be included in the header of the
+request. A token can be acquired from the Login view above.
+
+### Current User related
+
+Each endpoint manipulates or displays information related to the User whose
+Token is provided with the request:
+
+* [Get user's coin list](current-user/get-user-coins.md) : `GET /api/user-coins/:id`
+* [Add/Remove coin to user coin list](current-user/put-coins.md) : `PUT api/user-coins/add-coins/`
+* [Delete An Account](current-user/delete.md) : `DELETE /api/auth/:id`
