@@ -1,4 +1,4 @@
-[Back to README.md](../../)
+[Back to README.md](../../README.md)
 
 # Register/Create User's Account
 
@@ -81,4 +81,4 @@ Provide name of Account to be created.
 }
 ```
 
-[Back to README.md](../../)
+[Back to README.md](../../README.md)

@@ -1,4 +1,4 @@
-[Back to README.md](../../)
+[Back to README.md](../../README.md)
 
 # Delete User's Account
 
@@ -45,4 +45,4 @@ Delete the Account and associated coin list of an Authenticated User.
 
 * Will remove user coin list for this account in addition to removing the account.
 
-[Back to README.md](../../)
+[Back to README.md](../../README.md)

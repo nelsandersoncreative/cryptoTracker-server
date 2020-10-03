@@ -1,4 +1,4 @@
-[Back to README.md](../../)
+[Back to README.md](../../README.md)
 
 # Add/Remove Coin To User Coin List
 
@@ -52,4 +52,4 @@ User with `id` of `1` adds a coin with coin code `BTC` to their coin list.
 
 * The user has no control over the endpoints/requests made here, they all happen within the app so the error handling is minimal and will respond with "500 internal server error" if an error were to happen.
 
-[Back to README.md](../../)
+[Back to README.md](../../README.md)

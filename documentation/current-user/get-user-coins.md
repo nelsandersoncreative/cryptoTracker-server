@@ -1,4 +1,4 @@
-[Back to README.md](../../)
+[Back to README.md](../../README.md)
 
 # Get User Coins List
 
@@ -58,4 +58,4 @@ There are security issues:
 * This view allows existing users to test for existence of accounts that exist but that they do not have access to.
 * Account IDs are sequential so an authorized user can count all the Accounts on the system.
 
-[Back to README.md](../../)
+[Back to README.md](../../README.md)
