@@ -31,9 +31,10 @@ describe('User Coins Endpoints', () => {
 
 
 
-  // TEST #1 GET User Coins List
+  // TEST Suite #1 GET User Coins List
 
   describe('GET /api/user-coins/:user_id', () => {
+
     //if user has no coins in coins list yet
     it('successfully creates and then retrieves a user coin list when user previously had no coin list', async () => {
       return supertest(app)
@@ -54,11 +55,12 @@ describe('User Coins Endpoints', () => {
   });
 
 
-  // TEST #2. PUT Update a user's coin list
+  // TEST Suite #2. PUT Update a user's coin list
   
   describe('PUT /api/user-coins/add-coins/', () => {
 
-    it('when no coin list is found, initialize a coinlist', () => {
+    // if user doesn't have a coin list yet
+    it('when no coin list is found, initialize a coin list', () => {
       return supertest(app)
         .put('/api/user-coins/add-coins/')
         .set('Content-Type', 'application/json')
@@ -74,6 +76,7 @@ describe('User Coins Endpoints', () => {
         });
     });
 
+    // return 201 when coin list is updated
     it('returns 201 created when coin list is updated', () => {
       return supertest(app)
         .put('/api/user-coins/add-coins')

@@ -1,5 +1,6 @@
 'use strict'
 
+// Helper functions relating to user coin data for communicating with PostgreSQL database
 const UserCoinsService = {
   getUserCoins(knex, user_id) {
     return knex('user_coins')

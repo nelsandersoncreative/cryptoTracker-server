@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET, JWT_EXPIRY } = require('../config');
 
+// Helper functions relating to authorization (login/registration) for communicating with PostgreSQL database
 const AuthService = {
   findByEmail(knex, user_email) {
     return knex('users').where({user_email}).first('*');

@@ -5,7 +5,7 @@ const helpers = require('../test-helpers');
 const UserCoinsService = require('../../src/userCoins/userCoins-service');
 const knex = require('knex');
 
-// Testing User Coins Service
+// Generate database/table data for testing User Coins service functions
 describe('UserCoinsService', () => {
   let db;
   const testUsers = helpers.testUsers();
@@ -50,14 +50,3 @@ describe('UserCoinsService', () => {
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
-    

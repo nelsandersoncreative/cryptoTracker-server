@@ -6,6 +6,7 @@ const app = require('../../src/app');
 const helpers = require('../test-helpers');
 const AuthService = require('../../src/auth/auth-service');
 
+// generate database/table data for auth enpdpoints
 describe('Auth Endpoints', function() {
   let db;
   let testUsers = helpers.testUsers();
@@ -25,11 +26,12 @@ describe('Auth Endpoints', function() {
 
   beforeEach('seed users', () => helpers.createUsers(db, testUsers));
 
-//TESTING FOR ALL AUTH ENDPOINTS
-// should require an bearer token in an auth header
+  //TESTING FOR ALL AUTH ENDPOINTS -- required fields: user_email, user_password
   describe('POST /api/auth/login', () => {
     const requiredFields = ['user_name', 'user_email', 'user_password'];
     requiredFields.forEach(field => {
+
+      // return 400 and error msg if a field is missing
       it(`returns 400 and error message when ${field} is missing`, () => {
         const requestBody = {user_name: testUser.user_name, user_email: testUser.user_email, user_password: testUser.password};
         delete requestBody[field];
@@ -42,6 +44,7 @@ describe('Auth Endpoints', function() {
       });
     });
 
+    // return a 401 if user enters invalid email
     it('return 401 when invalid email', () => {
       const requestBody = {user_name: testUser.user_name, user_email: 'fake@fake.fake', user_password: testUser.user_password};
 
@@ -52,6 +55,7 @@ describe('Auth Endpoints', function() {
         .expect(401, {message: 'Try again. Wrong username, email or password.'});
     });
 
+    // return 401 if user enters invalid passsword
     it('return 401 when invalid password', () => {
       const requestBody = {user_name: testUser.user_name, user_email: testUser.user_email, user_password: 'justPlainWrong'};
 
@@ -62,6 +66,7 @@ describe('Auth Endpoints', function() {
         .expect(401, {message: 'Try again. Wrong username, email or password.'});
     });
 
+    // return 200 if user successfully enters valid credentials
     it('return 200, authToken and user when successful', async () => {
       const user = await helpers.findByEmail(db, testUser.user_email);
       const requestBody = {user_name: testUser.user_name, user_email: testUser.user_email, user_password: testUser.user_password};
@@ -81,23 +86,4 @@ describe('Auth Endpoints', function() {
         });
     });
   });
-
-  // describe('GET /api/auth/current-user', () => {
-  //   it('returns 200 and user with password, created_at and updated_at removed', () => {
-  //     return supertest(app)
-  //       .get('/api/auth/current-user')
-  //       .set('Authorization', helpers.createAuthToken(testUser))
-  //       .expect(200)
-  //       .then(res => {
-  //         expect(res.body.id).to.equal(1);
-  //         expect(res.body.full_name).to.equal(testUser.full_name);
-  //         expect(res.body.email).to.equal(testUser.email);
-  //         // eslint-disable-next-line no-unused-expressions
-  //         expect(res.body.password).to.be.undefined;
-  //         // eslint-disable-next-line no-unused-expressions
-  //         expect(res.body.hasCurrentCycle).to.be.false;
-  //       });
-  //   });
-  // });
-
 });

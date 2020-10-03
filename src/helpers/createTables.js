@@ -1,3 +1,5 @@
+//check to see if tables exist.  create tables if they don't exist
+
 module.exports.createTables = (db) => {
   db.schema
     .hasTable("users")

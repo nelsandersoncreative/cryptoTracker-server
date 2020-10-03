@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 require('../setup');
 const UserService = require('../../src/users/user-service');
 
+// generate database/table data for user related endpoints
 describe('User Endpoints', () => {
   let db;
   const testUsers = helpers.testUsers();
@@ -24,12 +25,13 @@ describe('User Endpoints', () => {
   afterEach('clear table data', () => helpers.cleanTables(db));
   after('close db connection', () => db.destroy());
 
-
-
-  
+  // TEST SUITE #1 Register new user endpoint
+  // requires user_name, user_email, user_password
   describe('POST api/users', () => {
     const requiredFields = ['user_name', 'user_email', 'user_password'];
     requiredFields.forEach(field => {
+
+      // return 400 and error msg when field is missing
       it(`returns 400 and error message when ${field} is missing`, () => {
         const requestBody = helpers.createNewUserRequest();
         delete requestBody[field];
@@ -43,6 +45,8 @@ describe('User Endpoints', () => {
     });
 
     requiredFields.forEach(field => {
+
+      // return 400 and error msg when field begins or ends with spaces
       it(`returns 400 if ${field} begins or ends with spaces`, () => {
         const requestBody = helpers.createNewUserRequest();
         requestBody[field] = ` ${requestBody[field]} `; 
@@ -55,6 +59,7 @@ describe('User Endpoints', () => {
       });
     });
 
+    // return 400 and error msg if user_name is less than 3 characters
     it('returns 400 and error message if user_name is less than 3 characters', () => {
       const requestBody = helpers.createNewUserRequest();
       requestBody.user_name = 'f';
@@ -67,6 +72,7 @@ describe('User Endpoints', () => {
         
     });
 
+    // return 400 and error msg when if invalid email
     it('returns 400 and error message if invalid email format', () => {
       const requestBody = helpers.createNewUserRequest();
       requestBody.user_email = 'foo.com';
@@ -78,6 +84,7 @@ describe('User Endpoints', () => {
         .expect(400, {message: {error: true, user_email: 'invalid email format'}});
     });
 
+    // return 400 and error msg when password is less than 6 chars
     it('returns 400 and error message if password less than 6 characters', () => {
       const requestBody = helpers.createNewUserRequest();
       requestBody.user_password = '12345';
@@ -88,8 +95,11 @@ describe('User Endpoints', () => {
         .expect(400, {message: {error: true, user_password: 'password must be at least 6 characters'}});
     });
 
+    // tests for if a user account uses credentials entered to register a new user
     context('when a user already exists', () => {
       before('create users', async () => await helpers.createUsers(db, testUsers));
+
+      // 400 and error msg if same email as existing email is used
       it('returns 400 and error message if same email is used', () => {
       
         const requestBody = helpers.createNewUserRequest();
@@ -103,6 +113,7 @@ describe('User Endpoints', () => {
       });
     });
     
+    // successful registration
     it('returns 201, user obj, location and auth headers when saved successfully', () => {
       const requestBody = helpers.createNewUserRequest();
       

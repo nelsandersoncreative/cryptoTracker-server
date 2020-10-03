@@ -2,6 +2,7 @@
 
 const bcrypt = require('bcryptjs');
 
+// Helper functions relating to user form submission data for communicating with PostgreSQL database
 const UserService = {
   validateUserFields(user) {
     const response = {};

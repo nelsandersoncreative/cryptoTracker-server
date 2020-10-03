@@ -5,6 +5,7 @@ const knex = require('knex');
 const app = require('../../src/app');
 const helpers = require('./../test-helpers');
 
+// generate database/table data for protected enpdpoints
 describe('Protected Endpoints', function() {
   let db;
   let testUsers = helpers.testUsers();
@@ -23,6 +24,9 @@ describe('Protected Endpoints', function() {
 
   beforeEach('seed users', () => helpers.createUsers(db, testUsers));
 
+
+  // test each protected endpoint relating to unique user coin data
+  // getting user coin list & adding/deleting coins from user coin list
   const protectedEndpoints = [
     {
       name: 'GET /api/user-coins/:user_id',

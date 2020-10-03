@@ -1,5 +1,7 @@
 'use strict'
 
+// determine whether the environment is production, development or testing
+// set database urls accordingly
 const setDatabaseUrl = env => {
   if (env === 'production') {
     return process.env.DATABASE_URL;
