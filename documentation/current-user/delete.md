@@ -1,6 +1,6 @@
 # Delete User's Account
 
-Delete the Account and associated park list of an Authenticated User.
+Delete the Account and associated coin list of an Authenticated User.
 
 **URL** : `/api/auth/:id`
 
@@ -41,4 +41,4 @@ Delete the Account and associated park list of an Authenticated User.
 
 ## Notes
 
-* Will remove user parks list for this account in addition to removing the account.
+* Will remove user coin list for this account in addition to removing the account.
