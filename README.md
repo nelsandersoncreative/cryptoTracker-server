@@ -2,13 +2,17 @@
 
 Create a wallet of cryptocurrency coins you want to follow.  See chronological visualizations of coin prices measured in days, weeks or months dating as far back as 2010 all the way to the present.
 
-This is the backend for `cryptoTracker`.  A live version of the app can be found at [https://cryptotracker-omega.vercel.app/](https://cryptotracker-omega.vercel.app/)
+This is the backend for `CryptoTracker`.  A live version of the app can be found at [https://cryptotracker-omega.vercel.app/](https://cryptotracker-omega.vercel.app/)
 
 The front end client can be found at [https://github.com/nelsandersoncreative/cryptotracker-client](https://github.com/nelsandersoncreative/cryptotracker-client).
 
 ## Introduction
 
 If you'd like to learn more about Crypto Tracker, discover cryptocurrency coins you haven't heard about or just want to see general cryptocurrency prices, you have come to the right place. With this app you will be able to explore cryptocurrency coins, save the ones you like in a wallet and refer to them whenever you'd like.
+
+## Summary
+
+This API handles requests made by the front end client `CryptoTracker`. It handles login requests, registration requests and requests relating to maintaining user coin lists. It stores user login and user-related coin information in a PostgreSQL database.
 
 ## Screenshots
 
@@ -99,8 +103,8 @@ JWT_EXPIRY='1w'
 
 Open endpoints require no Authentication.
 
-* [Login](auth/login.md) : `POST /api/auth/login`
-* [Register](auth/register.md) : `POST api/users/register`
+* [Login](documentation/auth/login.md) : `POST /api/auth/login`
+* [Register](documentation/auth/register.md) : `POST api/users/register`
 
 
 ## Endpoints that require Authentication
@@ -113,6 +117,6 @@ request. A token can be acquired from the Login view above.
 Each endpoint manipulates or displays information related to the User whose
 Token is provided with the request:
 
-* [Get user's coin list](current-user/get-user-coins.md) : `GET /api/user-coins/:id`
-* [Add/Remove coin to user coin list](current-user/put-coins.md) : `PUT api/user-coins/add-coins/`
-* [Delete An Account](current-user/delete.md) : `DELETE /api/auth/:id`
+* [Get user's coin list](documentation/current-user/get-user-coins.md) : `GET /api/user-coins/:id`
+* [Add/Remove coin to user coin list](documentation/current-user/put-coins.md) : `PUT api/user-coins/add-coins/`
+* [Delete An Account](documentation/current-user/delete.md) : `DELETE /api/auth/:id`
