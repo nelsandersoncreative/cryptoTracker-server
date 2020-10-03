@@ -1,3 +1,5 @@
+[Back to README.md](../../)
+
 # Login
 
 Used to collect a Token for a registered User.
@@ -56,3 +58,6 @@ Used to collect a Token for a registered User.
     "message": "Try again. Wrong username, email or password."
 }
 ```
+
+
+[Back to README.md](../../)

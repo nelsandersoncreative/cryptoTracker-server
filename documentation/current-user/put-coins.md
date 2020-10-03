@@ -1,3 +1,5 @@
+[Back to README.md](../../)
+
 # Add/Remove Coin To User Coin List
 
 Allow the Authenticated User to add/remove a coin to/from their user coin list.
@@ -49,3 +51,5 @@ User with `id` of `1` adds a coin with coin code `BTC` to their coin list.
 ## Notes
 
 * The user has no control over the endpoints/requests made here, they all happen within the app so the error handling is minimal and will respond with "500 internal server error" if an error were to happen.
+
+[Back to README.md](../../)
